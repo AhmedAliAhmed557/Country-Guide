@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Countery Duide</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="search-wrapper">
+        <input
+          type="text"
+          id="search-inp"
+          placeholder="Enter a country name here ..."
+          oninput="capitalizeInput()"
+        />
+        <button id="search-btn">Search</button>
+      </div>
+      <div id="result"></div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
