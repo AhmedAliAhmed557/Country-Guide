@@ -9,11 +9,20 @@ const capitalizeInput = () => {
   countryInp.value = capitalizeFirstLetter(countryInp.value);
 };
 
+function removeSpaces() {
+  countryInp.value = countryInp.value.replace(/\s/g, "");
+}
+
+function handleKeyPress(event) {
+  if (event.key === "Enter") {
+    searchBtn.click();
+  }
+}
 searchBtn.addEventListener("click", () => {
   let countryName = countryInp.value;
   let modefiedName = countryName.charAt(0).toUpperCase() + countryName.slice(1);
   let URL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
-  console.log(modefiedName);
+  countryInp.value = "";
   fetch(URL)
     .then((res) => res.json())
     .then((data) => {
@@ -33,7 +42,6 @@ searchBtn.addEventListener("click", () => {
       }
     });
 });
-
 const countryInfoBody = (data) => {
   result.innerHTML = `
         <img class="flag-img" src=${data[0].flags.svg} alt="Country Image">
